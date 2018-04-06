@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btUnit2: UIButton!
     @IBOutlet weak var labelResult: UILabel!
     @IBOutlet weak var labelResultUnit: UILabel!
-    @IBOutlet weak var lbUnit2: UILabel!
+    @IBOutlet weak var lbUnit: UILabel!
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -34,21 +34,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showNext(_ sender: UIButton) {
-        switch lbUnit2.text!{
+        switch lbUnit.text!{
             case "Temperatura":
-            lbUnit2.text="Peso"
+            lbUnit.text="Peso"
             btUnit1.setTitle("Kilograma", for: .normal)
             btUnit2.setTitle("Libra", for: .normal)
             case "Peso":
-            lbUnit2.text="Moeda"
+            lbUnit.text="Moeda"
             btUnit1.setTitle("Real", for: .normal)
             btUnit2.setTitle("Dolar", for: .normal)
             case "Moeda":
-            lbUnit2.text="Distancia"
+            lbUnit.text="Distancia"
             btUnit1.setTitle("Metro", for: .normal)
             btUnit2.setTitle("Kilometro", for: .normal)
             default:
-            lbUnit2.text="Temperatura"
+            lbUnit.text="Temperatura"
             btUnit1.setTitle("Celsius", for: .normal)
             btUnit2.setTitle("Farenheint", for: .normal)
         }
@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             sender.alpha = 1.0
         }
-        switch lbUnit2.text!{
+        switch lbUnit.text!{
             case "Temperatura":
                 calcTemperature()
             case "Peso":
@@ -87,9 +87,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if btUnit1.alpha == 1.0{
             labelResultUnit.text = "Farenheint"
             labelResult.text = String(temperature * 1.8 + 32.0)
-            while true {
-                print ("teste")
-            }
         } else {
             labelResultUnit.text = "Celsius"
             labelResult.text = String ((temperature - 32.0)/1.8)
